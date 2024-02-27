@@ -1,5 +1,7 @@
+import React from "react";
 import { useDrag } from "react-dnd";
 import toast from "react-hot-toast";
+import "../index.css";
 
 const Task = ({ task, tasks, setTasks }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
@@ -32,16 +34,12 @@ const Task = ({ task, tasks, setTasks }) => {
   };
 
   return (
-    <div ref={drag} className={`bg-white p-4 mt-8 shadow-md cursor-grab rounded-md ${isDragging ? "opacity-25" : "opacity-100"}`}>
+    <div ref={drag} className={`task ${isDragging ? "task-dragging" : ""}`}>
       <p>{task.content}</p>
-      <button className="bottom-1 right-1" onClick={() => handleEdit(task.id)}>
-        ✏️
-      </button>
-      <button className="bottom-1 right-1" onClick={() => handleRemove(task.id)}>
-        ❌
-      </button>
+      <button onClick={() => handleEdit(task.id)}>✏️</button>
+      <button onClick={() => handleRemove(task.id)}>❌</button>
     </div>
   );
 };
 
-export default Task; 
+export default Task;

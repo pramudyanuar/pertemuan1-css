@@ -1,6 +1,8 @@
+import React from "react";
 import { useDrop } from "react-dnd";
 import Task from "./task";
 import Header from "./header";
+import "../index.css";
 
 const Section = ({ status, tasks, setTasks, deleteStatus }) => {
   const [{ isOver }, drop] = useDrop(() => ({
@@ -27,7 +29,7 @@ const Section = ({ status, tasks, setTasks, deleteStatus }) => {
   const filteredTasks = tasks.filter((task) => task.status === status);
 
   return (
-    <div ref={drop} className={`w-64 rounded-md p-2 ${isOver ? "bg-slate-200" : ""}`}>
+    <div ref={drop} className={`section ${isOver ? "section-highlight" : ""}`}>
       <Header text={status} count={filteredTasks.length} deleteStatus={deleteStatus} />
       {filteredTasks.length > 0 &&
         filteredTasks.map((task) => (

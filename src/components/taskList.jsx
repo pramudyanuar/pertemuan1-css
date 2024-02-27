@@ -1,5 +1,6 @@
-import Section from "./section";
 import React, { useEffect, useState } from "react";
+import Section from "./section";
+import "../index.css";
 
 const ListTask = ({ tasks, setTasks }) => {
   const [statuses, setStatuses] = useState(() => {
@@ -30,15 +31,13 @@ const ListTask = ({ tasks, setTasks }) => {
   };
 
   return (
-    <div>
-      <div className="flex gap-16">
-        {statuses.map((status, index) => (
-          <Section key={index} status={status} tasks={tasks} setTasks={setTasks} deleteStatus={deleteStatus} />
-        ))}
-        <button onClick={addStatus} >Add New Status</button>
-      </div>
+    <div className="list-task">
+      {statuses.map((status, index) => (
+        <Section key={index} status={status} tasks={tasks} setTasks={setTasks} deleteStatus={deleteStatus} />
+      ))}
+      <button className="add-status-button" onClick={addStatus}>Add New Status</button>
     </div>
   );
 };
 
-export default ListTask;  
+export default ListTask;
