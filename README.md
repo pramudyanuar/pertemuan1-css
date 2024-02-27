@@ -1,7 +1,5 @@
 # Tugas 1 Oprec Admin RPL 2024
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Nama : Yanuar Eka Pramudya
 ## NRP : 5025221049
 
